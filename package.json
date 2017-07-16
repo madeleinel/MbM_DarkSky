@@ -19,6 +19,6 @@
   "homepage": "https://github.com/madeleinel/MbM_DarkSky#readme",
   "dependencies": {
     "express": "^4.15.3",
-    "json-proxy": "^0.9.3"
+    "express-http-proxy": "^1.0.5"
   }
 }
