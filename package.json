@@ -1,0 +1,24 @@
+{
+  "name": "mbm_darksky",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madeleinel/MbM_DarkSky.git"
+  },
+  "author": "Madeleine Linder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/madeleinel/MbM_DarkSky/issues"
+  },
+  "homepage": "https://github.com/madeleinel/MbM_DarkSky#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "express-http-proxy": "^1.0.5"
+  }
+}
