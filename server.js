@@ -26,6 +26,7 @@ var darksky_options = {
 request(darksky_options)
   .then(function apiCall(response) {
     // return response;
+    // Export the entire response to script.js, and move the data handling below to that file
 
     // Convert the response into a JavaScript object, to access the relevant data within it
     var result = JSON.parse(response);
@@ -46,6 +47,7 @@ request(darksky_options)
         var minTemp = Math.round((currentItem.temperatureMin - 32) * 5/9);
         var maxTemp = Math.round((currentItem.temperatureMax - 32) * 5/9);
 
+        // make clothing recommendations based on the predicted lowest temperature of the day
         if (minTemp < 0) {
           console.log('It will be freezing today, so wear a warm coat! ')
         } else if (minTemp < 10) {
@@ -58,6 +60,7 @@ request(darksky_options)
           console.log('It will be boiling today, so stay inside where there\'s air conditioning. ')
         }
 
+        // make umbrella recommendations based on the predicted likelihood of rain during the day
         if (currentItem.precipProbability === 0) {
           console.log('You don\'t need to bring an umbrella today.')
         } else if (currentItem.precipProbability > 0.25 && currentItem.precipProbability < 0.75) {
@@ -66,6 +69,7 @@ request(darksky_options)
           console.log('It\'s going to rain as well, so you should bring an umbrella.')
         }
 
+        // just for fun; recommend viewing the full moon if it's likely to be visible that night
         if (currentItem.moonPhase === 0.5 && currentItem.cloudCover < 0.25) {
           console.log('There will be a fullmoon tonight and the sky will be clear; you should go outside and watch it!')
         }
