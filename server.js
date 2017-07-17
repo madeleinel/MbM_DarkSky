@@ -19,7 +19,7 @@ app.use(express.static('public'));
 var darksky_options = {
   method: 'GET',
   // As not yet able to get the user's current geolocation; the API call uri is using London coordinates
-  uri: 'https://api.darksky.net/forecast/' + darkSky_key + "/51.507351,-0.127758" // path + api_key + "/" + latitude + "," + longitude
+  uri: 'https://api.darksky.net/forecast/' + darkSky_key + "/51.5306270,-0.0381030" // path + api_key + "/" + latitude + "," + longitude
 };
 
 // exports.apiCall =
@@ -79,7 +79,7 @@ request(darksky_options)
   });
 
 // Set up the port to run the site from; either the automatically provided one, or localhost 5500
-var port = process.env.PORT || 5500;
+var port = process.env.PORT || 2200;
 
 // Start the Server
 app.listen(port, function() {
