@@ -1,7 +1,7 @@
 // Set up Express
 var express = require('express'), // access the express module
     app = express(), // create an express app
-    request = require('request-promise'),
+    request = require('request-promise'), // Use request-promise to enable the Dark Sky API calls
     // Import the config object within the config.js file to access the API keys:
     configFile = require('./config'),
     configObject = configFile.config,
@@ -12,14 +12,18 @@ var express = require('express'), // access the express module
 // As there's only page (endpoint '/'), can set up using app.use() rather than app.get()
 app.use(express.static('public'));
 
+// Use the Google Maps API to get the latitude and longitude of the user's current location
+// Need to set up a secure connection (https) before this can be done
+
 // Set variables for the GET request
-var weather_options = {
+var darksky_options = {
   method: 'GET',
-  uri: 'https://api.darksky.net/forecast/' + darkSky_key + "/51.5306270,-0.0381030" // path + api_key + "/" + latitude + "," + longitude
+  // As not yet able to get the user's current geolocation; the API call uri is using London coordinates
+  uri: 'https://api.darksky.net/forecast/' + darkSky_key + "/51.507351,-0.127758" // path + api_key + "/" + latitude + "," + longitude
 };
 
 // exports.apiCall =
-request(weather_options)
+request(darksky_options)
   .then(function apiCall(response) {
     // return response;
 
@@ -66,15 +70,7 @@ request(weather_options)
           console.log('There will be a fullmoon tonight and the sky will be clear; you should go outside and watch it!')
         }
 
-
-        // console.log(currentItem.precipType);
-        // console.log(currentItem.windSpeed);
-
-        // create a paragraph for the output text
-        // var outputField = document.getElementById('output');
-        //     outputParagraph = document.createElement('p');
-        // place the paragraph within the output element
-        // outputField.appendChild(outputParagraph);
+        // Also use currentItem.precipType currentItem.windSpeed for the recommendations?
       }
     }
   })
