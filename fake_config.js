@@ -1,0 +1,4 @@
+exports.config = {
+  DARKSKY_KEY : 'API_SECRET_KEY',
+  GOOGLEMAPS_KEY : 'API_SECRET_KEY'
+}
