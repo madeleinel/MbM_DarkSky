@@ -79,7 +79,7 @@ request(darksky_options)
   });
 
 // Set up the port to run the site from; either the automatically provided one, or localhost 5500
-var port = process.env.PORT || 5500;
+var port = process.env.PORT || 2200;
 
 // Start the Server
 app.listen(port, function() {
